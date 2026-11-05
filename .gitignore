@@ -1,0 +1,17 @@
+# données et sorties volumineuses
+data/
+lakehouse/
+checkpoints/
+mlruns/
+*.pbix.bak
+# python
+.venv/
+.venv1/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+# IDE
+.idea/
+# secrets
+.env
