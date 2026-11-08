@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EngineTelemetry",
+  "type": "object",
+  "required": [
+    "message_id",
+    "engine_id",
+    "cycle",
+    "event_time",
+    "op_settings",
+    "sensors"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "message_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "engine_id": {
+      "type": "string",
+      "pattern": "^ENG-[0-9]{3}$"
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "event_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "op_settings": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "sensors": {
+      "type": "object",
+      "required": [
+        "s2",
+        "s3",
+        "s4",
+        "s7",
+        "s8",
+        "s11",
+        "s12",
+        "s13",
+        "s15",
+        "s17",
+        "s20",
+        "s21"
+      ],
+      "additionalProperties": {
+        "type": "number"
+      },
+      "properties": {
+        "s2": {
+          "type": "number",
+          "minimum": 577.089,
+          "maximum": 708.983
+        },
+        "s3": {
+          "type": "number",
+          "minimum": 1413.936,
+          "maximum": 1778.601
+        },
+        "s4": {
+          "type": "number",
+          "minimum": 1244.025,
+          "maximum": 1585.639
+        },
+        "s7": {
+          "type": "number",
+          "minimum": 494.865,
+          "maximum": 611.666
+        },
+        "s8": {
+          "type": "number",
+          "minimum": 2149.11,
+          "maximum": 2627.416
+        },
+        "s11": {
+          "type": "number",
+          "minimum": 42.165,
+          "maximum": 53.383
+        },
+        "s12": {
+          "type": "number",
+          "minimum": 466.821,
+          "maximum": 575.718
+        },
+        "s13": {
+          "type": "number",
+          "minimum": 2149.092,
+          "maximum": 2627.416
+        },
+        "s15": {
+          "type": "number",
+          "minimum": 7.4924,
+          "maximum": 9.4433
+        },
+        "s17": {
+          "type": "number",
+          "minimum": 349.2,
+          "maximum": 440.0
+        },
+        "s20": {
+          "type": "number",
+          "minimum": 34.326,
+          "maximum": 43.373
+        },
+        "s21": {
+          "type": "number",
+          "minimum": 20.6048,
+          "maximum": 25.9802
+        }
+      }
+    }
+  }
+}
