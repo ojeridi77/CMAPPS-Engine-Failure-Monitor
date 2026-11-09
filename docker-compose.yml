@@ -33,10 +33,11 @@ services:
     image: apache/kafka:3.8.0
     depends_on:
       kafka: { condition: service_healthy }
-    entrypoint: ["/bin/sh", "-c"]
-    command: |
-      /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:19092 --create --if-not-exists --topic engine.telemetry.raw --partitions 3 --replication-factor 1 &&
-      /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:19092 --create --if-not-exists --topic engine.telemetry.dlq --partitions 1 --replication-factor 1
+    entrypoint: [ "/bin/sh", "-c" ]
+    command:
+      - |
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:19092 --create --if-not-exists --topic engine.telemetry.raw --partitions 3 --replication-factor 1 &&
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:19092 --create --if-not-exists --topic engine.telemetry.dlq --partitions 1 --replication-factor 1
 
   kafka-ui:
     image: kafbat/kafka-ui:v1.0.0
